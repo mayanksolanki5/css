@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
+    <title>Login</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color: #f7f8fa;
+    }
+    footer{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #1c2646;
+        height: 36px;
+    }
+    .footer{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        color: #fff;
+        height: 100%;
+        width: 100%;
+    }
+    .fa{
+        padding: 10px;
+    }
+    .white{
+        color: white;
+    }
+    header{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #183380;
+        height: 36px;
+    }
+    .header{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        color: #fff;
+        height: 100%;
+        width: 100%;
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 16px;
+        font-weight: 800;
+    }
+    .container{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .box{
+        height: 310px;
+        width: 400px;
+        margin-top: -70px;
+        background: white;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .dark{
+        width: 216px;
+        height: 38px;
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 28px;
+        font-weight: bold;
+        color: #242a41;
+    }
+    .no-account, .light{
+        font-family: 'NunitoSans', sans-serif;
+        font-size: 14px;
+        opacity: 0.3;
+    }
+    .no-account-m{
+        margin-top: -70px;
+    }
+    .signup{
+        font-family: 'NunitoSans', sans-serif;
+        font-size: 14px;
+        color: #51a8d1;
+        text-decoration: none;
+    }
+    .login{
+        height: 40px;
+        width: 280px;
+        border: 0;
+        border-radius: 25px;
+        font-weight: 1000;
+        font-size: 17px;
+        background: #20cdbb;
+        color: white;
+        font-family: NunitoSans;
+        cursor: pointer;
+    }
+    input {
+        font-family: 'NunitoSans', sans-serif;
+        font-size: 16px;
+        outline: 0;
+        border-width: 0 0 2px;
+        border-color: rgba(0, 0, 0, 0.06);;
+        margin-top: 10px;
+    }
+    label{
+        font-family: 'NunitoSans', sans-serif;
+        font-size: 12px;
+        display: block;
+    }
+    /* input:focus {
+       border-color: green
+    } */
+    .fa-eye{
+        cursor: pointer;
+        margin-left: -23px;
+    }
+    .validation{
+        color: red;
+        margin-top: 2px;
+        opacity: 0.7;
+    }
+</style>
+<body>
+    <header>
+        <div class="header">
+            <div><img src="/images/logo_2022-06-21/logo.png" height="23px" width="66px" alt="logo"></div>
+            <div class="login-text">Log In</div>
+            <div></div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <p class="dark">Let's get started</p>
+            <form>
+                <div class="box">
+                    <div class="input">
+                        <label class="light" for="username">Email or Username</label>
+                        <input type="text" id="username" size="30" name="username"  />
+                        <p id="username_val" class="validation"></p>
+                    </div>
+                    <div class="input">
+                        <label class="light" for="password">Password</label>
+                        <input type="password" id="password" size="30" name="password"  />
+                        <i class="far fa-eye" id="togglePassword"></i>
+                        <p id="password_val" class="validation"></p>
+                    </div>
+                    <div>
+                        <button type="submit"  id="submit" class="btn login">Log In</button>
+                    </div>
+                    <div>
+                        <a class="signup" href="#">Forgot Password?</a>
+                    </div>
+                </div>
+            </form>
+            <div class="no-account-m">
+                <span class="no-account">Don't have an account yet? </span>
+                <a class="signup" href="#">Sign Up</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer">
+            <div>© 2018 Rayft. All rights reserved.</div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div class="white">
+                <i class="fa fa-facebook"></i>
+                <i class="fa fa-twitter"></i>
+                <i class="fa fa-google-plus"></i>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+<script>
+    
+document.getElementById("togglePassword").addEventListener("click", function(event){
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+});
+
+
+document.getElementById("submit").addEventListener("click", function(event){
+  event.preventDefault()
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var username_val = '';
+    var password_val = '';
+
+    if(username == ''){
+        username_val = "Please Enter Username.";
+    }
+    if(password == ''){
+        password_val = "Please Enter Password.";
+    }
+
+    if(username_val !== ''){
+        document.getElementById("username_val").innerText = username_val;
+    }else{
+        document.getElementById("username_val").innerText = '';
+    }
+    if(password_val !== ''){
+        document.getElementById("password_val").innerText = password_val;
+    }else{
+        document.getElementById("password_val").innerText = '';
+    }
+
+});
+
+
+</script>

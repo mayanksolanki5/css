@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
+    <title>Login</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color: #f7f8fa;
+    }
+    footer{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #1c2646;
+        height: 36px;
+    }
+    .footer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+        height: 100%;
+        width: 100%;
+    }
+    .login-text{
+        margin-top: 7px;
+        text-align: center;
+    }
+    .fa{
+        padding: 10px;
+    }
+    .white{
+        color: white;
+        font-family: 'Nunito Sans', sans-serif;
+    }
+    header{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #183380;
+        height: 36px;
+    }
+    .header{
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+        margin-top: -20px;
+        margin-left: 80px;
+        color: #fff;
+        height: 100%;
+        width: 100%;
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 16px;
+        font-weight: 800;        
+    }
+    .container{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .box{
+        height: 400px;
+        width: 360px;
+        margin-top: -70px;
+        background: white;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .dark{
+        width: 218px;
+        height: 38px;
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 28px;
+        font-weight: bold;
+        color: #242a41;
+    }
+    .no-account, .light{
+        font-family: 'NunitoSans', sans-serif;
+        font-size: 14px;
+        opacity: 0.3;
+    }
+    .no-account-m{
+        margin-top: -40px;
+    }
+    .signup{
+        font-family: 'NunitoSans', sans-serif;
+        font-size: 14px;
+        color: #51a8d1;
+        text-decoration: none;
+    }
+    .btn-next{
+        height: 40px;
+        width: 280px;
+        border: 0;
+        border-radius: 25px;
+        font-weight: 1000;
+        font-size: 17px;
+        background: #20cdbb;
+        color: white;
+        font-family: NunitoSans;
+        cursor: pointer;
+    }
+    input {
+        font-family: 'NunitoSans', sans-serif;
+        font-size: 16px;
+        outline: 0;
+        border-width: 0 0 2px;
+        border-color: rgba(0, 0, 0, 0.04);
+        margin-top: 10px;
+    }
+    #password{
+        font-family: 'NunitoSans', sans-serif;
+        font-size: 16px;
+        outline: 0;
+        border-width: 0 0 2px;
+        border-color: rgba(0, 0, 0, 0.06);
+        margin-top: 10px;
+    }
+    label{
+        font-family: 'NunitoSans', sans-serif;
+        font-size: 12px;
+        display: block;
+    }
+    /* input:focus {
+       border-color: green
+    } */
+    .fa-eye-slash{
+        cursor: pointer;
+        margin-left: -18px;
+        opacity: 0.15;
+    }
+    .fa-eye{
+        cursor: pointer;
+        margin-left: -18px;
+        opacity: 0.15;
+    }
+    .validation{
+        color: red;
+        margin-top: 2px;
+        opacity: 0.7;
+        font-size: 12px;
+    }
+    .input-flex{
+        display: flex;
+        width: 280px;
+    }
+    .input-flex2{
+        display: flex;
+        width: 300px;
+        margin-left: -23px;
+        margin-top: -10px;
+    }
+    .flex-col{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 150px;
+        align-items: center;
+    }
+ 
+
+    .round {
+        position: relative;
+    }
+
+    .round label {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        cursor: pointer;
+        height: 20px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 20px;
+    }
+
+    .round label:after {
+        border: 2px solid #fff;
+        border-top: none;
+        border-right: none;
+        content: "";
+        height: 6px;
+        left: 3px;
+        opacity: 0;
+        position: absolute;
+        top: 4px;
+        transform: rotate(-45deg);
+        width: 12px;
+    }
+
+    .round input[type="checkbox"] {
+        visibility: hidden;
+    }
+
+    .round input[type="checkbox"]:checked + label {
+        background-color: #20cdbb;
+        border-color: #66bb6a;
+    }
+
+    .round input[type="checkbox"]:checked + label:after {
+        opacity: 1;
+    }
+
+
+    .footer-text{
+        margin-left: 80px;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .footer-text{
+            margin-left: 20px;
+        }
+        .header{
+            margin-left: 20px;
+        }
+    }
+
+
+</style>
+<body>
+    <header>
+        <!-- <div class="header">
+            <div><img src="./images/logo_2022-06-21/logo.png" height="23px" width="66px" alt="logo"></div>
+            <div class="login-text">Log In</div>
+            <div></div>
+        </div> -->
+        <div class="white login-text">Log In</div>
+        <div class="header">
+            <div><img src="./images/logo_2022-06-21/logo.png" height="23px" width="66px" alt="logo"></div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <p class="dark" style="margin-bottom: 30px;">Create an account</p>
+            <form>
+                <div class="box">
+                    <div class="input input-flex">
+                        <div style="margin-right: 10px;">
+                            <label class="light" for="firstname">First name</label>
+                            <input type="text" id="firstname" size="12" name="firstname"  />
+                            <p id="firstname_val" class="validation"></p>
+                        </div>
+                        <div>
+                            <label class="light" for="lastname">Last name</label>
+                            <input type="text" id="lastname" size="13" name="lastname"  />
+                            <p id="lastname_val" class="validation"></p>
+                        </div>
+                    </div>
+                    <div class="input">
+                        <label class="light" for="email">Email address</label>
+                        <input type="email" id="email" size="30" name="email"  />
+                        <p id="email_val" class="validation"></p>
+                    </div>
+                    <div class="input">
+                        <label class="light" for="password">Password</label>
+                        <input type="password" id="password" size="30" name="password"  />
+                        <i class="far fa-eye" id="togglePassword"></i>
+                        <p id="password_val" class="validation"></p>
+                    </div>
+                        <p class="light" style="margin-right: 114px">Whats your purpose here?</p>
+                    <!-- <div class="input input-flex">
+                        <div class="flex-col">
+                            <input type="checkbox" class="checkbox-round" id="reading" name="reading" style="margin-bottom:10px;" />                            
+                            <label class="light" id="reading-label" for="reading">Reading</label>
+                        </div>
+                        <div class="flex-col">
+                            <input type="checkbox" id="report" name="report" style="margin-bottom: 10px;" />                            
+                            <label class="light" id="report-label" for="report" >Writing Reports</label>
+                        </div>
+                    </div> -->
+
+                    <div class="input input-flex2 ">
+                        <div class="flex-col round">
+                            <input type="checkbox" class="checkbox-round" id="reading" name="reading" style="margin-bottom:10px;" />                                                      
+                            <label for="reading" style="margin-left: 20px;"><div id="reading-label" class="light" style="margin-left: 35px; margin-top: 3px;">Reading</div></label>
+                        </div>
+                        <div class="flex-col round">
+                            <input type="checkbox" id="report" name="report" style="margin-bottom: 10px;" />                            
+                            <label for="report" style="margin-left: 20px;"><div id="report-label" class="light" style="margin-left: 35px; margin-top: 3px; width: 100px;">Writing Reports</div></label>
+                        </div>
+                    </div>
+                        
+                    <div>
+                        <button type="button" id="submit" class="btn btn-next">Next</button>
+                    </div>
+
+                </div>
+            </form>
+            <div class="no-account-m">
+                <span class="no-account">Already have an account? </span>
+                <a class="signup" href="#">Log In</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="footer-text">© 2018 Rayft. All rights reserved.</div>
+            <div class="white" style="margin-right: 10px;">
+                <i class="fa fa-facebook"></i>
+                <i class="fa fa-twitter"></i>
+                <i class="fa fa-google-plus"></i>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+<script>
+    
+    t = document.getElementById("togglePassword");    
+    t.addEventListener("click", function(event){
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+        t.classList.toggle("fa-eye-slash");
+    });
+
+
+    var reading = document.getElementById('reading');
+    var report = document.getElementById('report');
+
+    reading.addEventListener("click", function(event){
+        var x = document.getElementById("reading-label");
+        if(reading.checked){
+            x.style.color = "black";    
+            x.style.opacity = "1";    
+        }
+        else{
+            x.style.color = "black";    
+            x.style.opacity = "0.3";    
+        }
+    });
+
+    report.addEventListener("click", function(event){
+        var y = document.getElementById("report-label");
+        if(report.checked){
+            y.style.color = "black";    
+            y.style.opacity = "1";    
+        }
+        else{
+            y.style.color = "black";    
+            y.style.opacity = "0.3";    
+        }
+    });
+
+
+
+document.getElementById("submit").addEventListener("click", function(event){
+  event.preventDefault()
+    var firstname = document.getElementById('firstname').value;
+    var lastname = document.getElementById('lastname').value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+    var firstname_val = '';
+    var lastname_val = '';
+    var password_val = '';
+    var email_val = '';
+
+    if(firstname == ''){
+        firstname_val = "Please Enter Firstname.";
+    }
+    if(lastname == ''){
+        lastname_val = "Please Enter Lastname.";
+    }
+    if(password == ''){
+        password_val = "Please Enter Password.";
+    }
+    if(email == ''){
+        email_val = "Please Enter Email.";
+    }
+
+    function ValidateEmail(mail) 
+    {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+        {
+            return true;
+        }
+    }
+
+    if(firstname_val !== ''){
+        document.getElementById("firstname_val").innerText = firstname_val;
+    }else{
+        document.getElementById("firstname_val").innerText = '';
+    }
+    if(lastname_val !== ''){
+        document.getElementById("lastname_val").innerText = lastname_val;
+    }else{
+        document.getElementById("lastname_val").innerText = '';
+    }
+    if(ValidateEmail(email)){
+        document.getElementById("email_val").innerText = '';
+    }
+    else{
+        document.getElementById("email_val").innerText = 'Please enter valid Email.';
+    }
+    if(password_val !== ''){
+        document.getElementById("password_val").innerText = password_val;
+    }else{
+        document.getElementById("password_val").innerText = '';
+    }
+
+});
+
+
+</script>

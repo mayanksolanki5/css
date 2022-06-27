@@ -28,7 +28,7 @@
     }
     .footer{
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         color: #fff;
         height: 100%;
@@ -39,6 +39,7 @@
     }
     .white{
         color: white;
+        font-family: 'Nunito Sans', sans-serif;
     }
     header{
         position: fixed;
@@ -48,26 +49,33 @@
         height: 36px;
     }
     .header{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+        margin-top: -20px;
+        margin-left: 80px;
         color: #fff;
         height: 100%;
         width: 100%;
         font-family: 'Nunito Sans', sans-serif;
         font-size: 16px;
-        font-weight: 800;
+        font-weight: 800;        
+    }
+    .login-text{
+        margin-top: 7px;
+        text-align: center;
     }
     .container{
         height: 100vh;
         display: flex;
         flex-direction: column;
+        /* flex: auto; */
         justify-content: space-evenly;
         align-items: center;
     }
     .box{
         height: 310px;
-        width: 400px;
+        width: 380px;
         margin-top: -70px;
         background: white;
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
@@ -126,9 +134,14 @@
     /* input:focus {
        border-color: green
     } */
+    .fa-eye-slash{
+        cursor: pointer;
+        margin-left: -18px;
+        opacity: 0.15;
+    }
     .fa-eye{
         cursor: pointer;
-        margin-left: -23px;
+        margin-left: -18px;
         opacity: 0.15;
     }
     .validation{
@@ -136,13 +149,29 @@
         margin-top: 2px;
         opacity: 0.7;
     }
+    .footer-text{
+        margin-left: 80px;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .footer-text{
+            margin-left: 20px;
+        }
+        .header{
+            margin-left: 20px;
+        }
+    }
 </style>
 <body>
     <header>
-        <div class="header">
+        <!-- <div class="header">
             <div><img src="./images/logo_2022-06-21/logo.png" height="23px" width="66px" alt="logo"></div>
             <div class="login-text">Log In</div>
             <div></div>
+        </div> -->
+        <div class="white login-text">Log In</div>
+        <div class="header">
+            <div><img src="./images/logo_2022-06-21/logo.png" height="23px" width="66px" alt="logo"></div>
         </div>
     </header>
     <main>
@@ -177,12 +206,8 @@
     </main>
     <footer>
         <div class="footer">
-            <div>© 2018 Rayft. All rights reserved.</div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div class="white">
+            <div class="footer-text">© 2018 Rayft. All rights reserved.</div>
+            <div class="white" style="margin-right: 10px;">
                 <i class="fa fa-facebook"></i>
                 <i class="fa fa-twitter"></i>
                 <i class="fa fa-google-plus"></i>
@@ -194,15 +219,18 @@
 
 
 <script>
-    
-document.getElementById("togglePassword").addEventListener("click", function(event){
+
+t = document.getElementById("togglePassword");    
+t.addEventListener("click", function(event){
     var x = document.getElementById("password");
     if (x.type === "password") {
         x.type = "text";
     } else {
         x.type = "password";
     }
+    t.classList.toggle("fa-eye-slash");
 });
+
 
 
 document.getElementById("submit").addEventListener("click", function(event){
